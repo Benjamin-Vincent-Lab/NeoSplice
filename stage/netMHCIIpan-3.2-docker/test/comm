@@ -1,0 +1,8 @@
+../netMHCIIpan -f example.fsa -a DRB1_0101 > example.fsa.out
+../netMHCIIpan -f example.pep -inptype 1 -a DRB1_0101 > example.pep.out
+../netMHCIIpan -f example.fsa -a H-2-IAb -s -u > example.fsa.sorted.out
+
+../netMHCIIpan -f example.fsa -hlaseq DRB10101.fsa > example.fsa_hlaseq.out
+../netMHCIIpan -f example.fsa -hlaseqA alpha.dat -hlaseq beta.dat > example.fsa_hlaseq_A+B.out
+
+

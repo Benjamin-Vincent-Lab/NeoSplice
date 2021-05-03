@@ -1,0 +1,44 @@
+#! /bin/bash
+
+# This the main NetMHCIIpan 3.2 script. It only acts as the frontend to the
+# software proper, a compiled binary.
+# 
+# VERSION:	2017
+# 
+
+###############################################################################
+#               GENERAL SETTINGS: CUSTOMIZE TO YOUR SITE
+###############################################################################
+
+# full path to the NetMHCIIpan 3.2 directory (mandatory)
+export  NMHOME=/netMHCIIpan-3.2-docker
+export  TMPDIR=./tmpII-3.2
+mkdir -p $TMPDIR
+# determine where to store temporary files (must be writable to all users)
+
+if [ -z "$TMPDIR" ] ; then
+        export  TMPDIR=/scratch
+fi
+
+# determine platform (do not change this unless you don't have 'uname'!)
+export  UNIX=`uname -s`
+export  AR=`uname -m`
+
+###############################################################################
+#               NOTHING SHOULD NEED CHANGING BELOW THIS LINE!
+###############################################################################
+
+# other settings
+PLATFORM="${UNIX}_${AR}"
+export PLATFORM=$NMHOME/$PLATFORM
+export NETMHCIIpan=$NMHOME
+
+# main ========================================================================
+if [ -x $NETMHCIIpan/NetMHCIIpan-3.2.pl ]
+then
+   $NETMHCIIpan/NetMHCIIpan-3.2.pl $*
+else
+   echo $NETMHCIIpan/NetMHCIIpan-3.2.pl not found
+fi
+
+# end of script ===============================================================
