@@ -54,7 +54,7 @@ Multiple steps are needed to identify a novel splice that occurs specifically in
 
 - **Step 3:** Prediction of splice variant neoantigens. Novel splice junctions contained within each splice variant transcript are translated in the inferred open reading frame.  MHC binding affinity prediction is performed on translated peptide sequences to determine which novel regions may yield a neopeptide.
 
-![fig1](https://github.com/Benjamin-Vincent-Lab/NeoSplice/images/Neosplice_fig1.PNG)
+.. image:: https://github.com/Benjamin-Vincent-Lab/NeoSplice/blob/master/images/Neosplice_fig1.PNG
 
 
 -------------------
@@ -63,7 +63,7 @@ Summary of workflow
 
 Functionally, these above steps are accomplished by individual Python2 scripts, alongside the prior listed dependencies.  This workflow is summarized in the below figure:
 
-.. image:: https://github.com/Benjamin-Vincent-Lab/NeoSplice/images/Neosplice_workflow.png
+.. image:: https://github.com/Benjamin-Vincent-Lab/NeoSplice/blob/master/images/Neosplice_workflow.png
 
 This workflow is summarized step-by-step below. Additionally, an example Nextflow script is provided in the ``./nextflow`` directory of the GitHub repo, which provides the entire workflow as an .nf script.
 
