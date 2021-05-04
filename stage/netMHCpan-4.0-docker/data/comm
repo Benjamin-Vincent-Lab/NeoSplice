@@ -1,0 +1,5 @@
+/home/projects/mniel/multipred/withMHC/IEDB_retrain_March_2013/allmer_fl0_maencgl_ishort/random> pepgrep xx ../data/MHC_pseudo.dat4training  > /usr/cbs/bio/src/netMHCpan-3.0/data/training.pseudo
+
+cat //home/projects/vaccine/people/morni/multipred/withMHC/IEDB_retrain_March_2013/allmer_fl0_maencgl_ishort_BA+EL/data/c00* | gawk '{if ( $2>0.426 ) { nb[$3]++} else {nnb[$3]++} n[$3]++}END{for ( i in n  ) { if ( nb[i] > 10 && nnb[i] > 10 && n[i] > 50 ) { print i, nb[i], n[i]}}}' > counts
+
+pepgrep counts MHC_pseudo.dat | gawk '{print $1,$2}' | sort -u > training.pseudo

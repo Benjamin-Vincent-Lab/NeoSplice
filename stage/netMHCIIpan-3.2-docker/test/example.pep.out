@@ -1,0 +1,23 @@
+# NetMHCIIpan version 3.2
+
+# Input is in PEPTIDE format
+
+# Threshold for Strong binding peptides (%Rank)	2%
+# Threshold for Weak binding peptides (%Rank)	10%
+
+# Allele: DRB1_0101
+--------------------------------------------------------------------------------------------------------------------------------------------
+ Seq        Allele              Peptide        Identity  Pos        Core  Core_Rel 1-log50k(aff)  Affinity(nM)    %Rank Exp_Bind  BindingLevel
+--------------------------------------------------------------------------------------------------------------------------------------------
+   1     DRB1_0101        AAAGAEAGKATTE        Sequence    1   AAGAEAGKA     0.665         0.175       7562.10    95.00   0.000       
+   2     DRB1_0101      AALAAAAGVPPADKY        Sequence    2   LAAAAGVPP     0.900         0.589         85.53    22.00   0.300       
+   3     DRB1_0101         EKPGNRNPYENL        Sequence    3   GNRNPYENL     0.540         0.082      20656.63    95.00   0.670       
+   4     DRB1_0101      STWLLKPGAGIMIFD        Sequence    4   LKPGAGIMI     0.570         0.675         33.55     7.50   0.000   <=WB
+   5     DRB1_0101      KSVPLEMLLINLTTI        Sequence    4   LEMLLINLT     0.480         0.620         61.09    16.00   0.560       
+   6     DRB1_0101      KTKEDLFGKKNLIPS        Sequence    5   LFGKKNLIP     0.510         0.365        966.92    75.00   0.670       
+   7     DRB1_0101      KIYHKCDNACIGSIR        Sequence    2   YHKCDNACI     0.650         0.395        693.44    70.00   0.940       
+   8     DRB1_0101      PCLFMRTVSHVILHG        Sequence    3   FMRTVSHVI     0.690         0.690         28.56     6.00   0.345   <=WB
+   9     DRB1_0101      GAATVAAGAATTAAG        Sequence    4   VAAGAATTA     0.425         0.464        330.54    50.00   0.000       
+--------------------------------------------------------------------------------------------------------------------------------------------
+Number of strong binders: 0 Number of weak binders: 2
+--------------------------------------------------------------------------------------------------------------------------------------------

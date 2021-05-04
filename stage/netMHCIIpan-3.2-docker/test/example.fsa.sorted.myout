@@ -1,0 +1,122 @@
+# NetMHCIIpan version 3.2
+
+# Input is in FASTA format
+
+# Peptide length 15
+
+# Threshold for Strong binding peptides (%Rank)	2%
+# Threshold for Weak binding peptides (%Rank)	10%
+
+# Allele: H-2-IAb
+--------------------------------------------------------------------------------------------------------------------------------------------
+ Seq        Allele              Peptide        Identity  Pos        Core  Core_Rel 1-log50k(aff)  Affinity(nM)    %Rank Exp_Bind  BindingLevel
+--------------------------------------------------------------------------------------------------------------------------------------------
+ 175       H-2-IAb      GFSTGYGSAVNVAKV      ADHB_HUMAN    1   FSTGYGSAV     0.310         0.481        274.96     0.80      NA   <=SB
+ 208       H-2-IAb      VMGCKAAGAARIIAV      ADHB_HUMAN    3   CKAAGAARI     0.635         0.468        315.43     1.10      NA   <=SB
+ 176       H-2-IAb      FSTGYGSAVNVAKVT      ADHB_HUMAN    3   GYGSAVNVA     0.345         0.462        337.08     1.20      NA   <=SB
+ 287       H-2-IAb      GTSVIVGVPPASQNL      ADHB_HUMAN    3   VIVGVPPAS     0.455         0.435        452.66     1.80      NA   <=SB
+ 137       H-2-IAb      IHHFLGTSTFSQYTV      ADHB_HUMAN    3   FLGTSTFSQ     0.560         0.385        776.88     4.00      NA   <=WB
+ 179       H-2-IAb      GYGSAVNVAKVTPGS      ADHB_HUMAN    5   VNVAKVTPG     0.285         0.376        858.60     4.50      NA   <=WB
+ 211       H-2-IAb      CKAAGAARIIAVDIN      ADHB_HUMAN    3   AGAARIIAV     0.300         0.374        878.78     4.50      NA   <=WB
+  51       H-2-IAb      HVVSGNLVTPLPVIL      ADHB_HUMAN    4   GNLVTPLPV     0.425         0.372        889.27     4.50      NA   <=WB
+ 290       H-2-IAb      VIVGVPPASQNLSIN      ADHB_HUMAN    1   IVGVPPASQ     0.340         0.355       1072.17     5.50      NA   <=WB
+  62       H-2-IAb      PVILGHEAAGIVESV      ADHB_HUMAN    5   HEAAGIVES     0.500         0.338       1294.79     7.00      NA   <=WB
+ 196       H-2-IAb      AVFGLGGVGLSAVMG      ADHB_HUMAN    2   FGLGGVGLS     0.510         0.325       1487.20     8.50      NA   <=WB
+ 184       H-2-IAb      VNVAKVTPGSTCAVF      ADHB_HUMAN    5   VTPGSTCAV     0.295         0.323       1511.91     8.50      NA   <=WB
+ 155       H-2-IAb      NAVAKIDAASPLEKV      ADHB_HUMAN    5   IDAASPLEK     0.425         0.321       1546.25     9.00      NA   <=WB
+ 204       H-2-IAb      GLSAVMGCKAAGAAR      ADHB_HUMAN    4   VMGCKAAGA     0.495         0.317       1627.39     9.00      NA   <=WB
+ 358       H-2-IAb      GFDLLHSGKSIRTVL      ADHB_HUMAN    4   LHSGKSIRT     0.690         0.314       1678.92     9.50      NA   <=WB
+ 133       H-2-IAb      RGKPIHHFLGTSTFS      ADHB_HUMAN    4   IHHFLGTST     0.350         0.304       1869.94    11.00      NA       
+ 296       H-2-IAb      PASQNLSINPMLLLT      ADHB_HUMAN    4   NLSINPMLL     0.415         0.281       2395.94    14.00      NA       
+  24       H-2-IAb      EDVEVAPPKAYEVRI      ADHB_HUMAN    4   VAPPKAYEV     0.400         0.280       2405.03    14.00      NA       
+  23       H-2-IAb      IEDVEVAPPKAYEVR      ADHB_HUMAN    3   VEVAPPKAY     0.450         0.277       2505.30    15.00      NA       
+ 291       H-2-IAb      IVGVPPASQNLSINP      ADHB_HUMAN    2   GVPPASQNL     0.205         0.275       2551.50    15.00      NA       
+ 283       H-2-IAb      HEACGTSVIVGVPPA      ADHB_HUMAN    6   SVIVGVPPA     0.400         0.266       2824.84    17.00      NA       
+  60       H-2-IAb      PLPVILGHEAAGIVE      ADHB_HUMAN    4   ILGHEAAGI     0.550         0.261       2975.46    18.00      NA       
+ 153       H-2-IAb      DENAVAKIDAASPLE      ADHB_HUMAN    2   NAVAKIDAA     0.335         0.259       3034.53    18.00      NA       
+  48       H-2-IAb      TDDHVVSGNLVTPLP      ADHB_HUMAN    5   VSGNLVTPL     0.380         0.249       3362.97    20.00      NA       
+  47       H-2-IAb      RTDDHVVSGNLVTPL      ADHB_HUMAN    4   HVVSGNLVT     0.345         0.236       3876.03    23.00      NA       
+ 280       H-2-IAb      LCCHEACGTSVIVGV      ADHB_HUMAN    3   HEACGTSVI     0.375         0.236       3903.22    23.00      NA       
+ 279       H-2-IAb      LLCCHEACGTSVIVG      ADHB_HUMAN    3   CHEACGTSV     0.405         0.228       4260.13    25.00      NA       
+ 310       H-2-IAb      TGRTWKGAVYGGFKS      ADHB_HUMAN    4   WKGAVYGGF     0.350         0.222       4542.14    27.00      NA       
+ 338       H-2-IAb      KKFSLDALITHVLPF      ADHB_HUMAN    1   KFSLDALIT     0.190         0.221       4589.16    27.00      NA       
+ 319       H-2-IAb      YGGFKSKEGIPKLVA      ADHB_HUMAN    5   SKEGIPKLV     0.370         0.221       4597.16    27.00      NA       
+ 200       H-2-IAb      LGGVGLSAVMGCKAA      ADHB_HUMAN    5   LSAVMGCKA     0.200         0.220       4628.11    27.00      NA       
+ 199       H-2-IAb      GLGGVGLSAVMGCKA      ADHB_HUMAN    3   GVGLSAVMG     0.230         0.218       4737.44    28.00      NA       
+  56       H-2-IAb      NLVTPLPVILGHEAA      ADHB_HUMAN    2   VTPLPVILG     0.345         0.217       4766.33    28.00      NA       
+ 266       H-2-IAb      FEVIGRLDTMMASLL      ADHB_HUMAN    3   IGRLDTMMA     0.365         0.216       4845.32    28.00      NA       
+ 307       H-2-IAb      LLLTGRTWKGAVYGG      ADHB_HUMAN    1   LLTGRTWKG     0.380         0.214       4918.79    29.00      NA       
+ 318       H-2-IAb      VYGGFKSKEGIPKLV      ADHB_HUMAN    4   FKSKEGIPK     0.405         0.213       4987.87    29.00      NA       
+ 144       H-2-IAb      STFSQYTVVDENAVA      ADHB_HUMAN    5   YTVVDENAV     0.430         0.213       5010.48    29.00      NA       
+   3       H-2-IAb      AGKVIKCKAAVLWEV      ADHB_HUMAN    3   VIKCKAAVL     0.390         0.210       5136.18    30.00      NA       
+ 293       H-2-IAb      GVPPASQNLSINPML      ADHB_HUMAN    5   SQNLSINPM     0.305         0.210       5141.69    30.00      NA       
+   4       H-2-IAb      GKVIKCKAAVLWEVK      ADHB_HUMAN    5   CKAAVLWEV     0.345         0.209       5236.68    30.00      NA       
+ 224       H-2-IAb      INKDKFAKAKELGAT      ADHB_HUMAN    5   FAKAKELGA     0.560         0.208       5294.16    31.00      NA       
+ 339       H-2-IAb      KFSLDALITHVLPFE      ADHB_HUMAN    5   ALITHVLPF     0.250         0.205       5453.82    32.00      NA       
+  88       H-2-IAb      KVIPLFTPQCGKCRV      ADHB_HUMAN    2   IPLFTPQCG     0.280         0.203       5585.62    32.00      NA       
+ 268       H-2-IAb      VIGRLDTMMASLLCC      ADHB_HUMAN    2   GRLDTMMAS     0.255         0.200       5732.75    33.00      NA       
+ 189       H-2-IAb      VTPGSTCAVFGLGGV      ADHB_HUMAN    2   PGSTCAVFG     0.350         0.193       6183.94    36.00      NA       
+ 169       H-2-IAb      VCLIGCGFSTGYGSA      ADHB_HUMAN    5   CGFSTGYGS     0.355         0.192       6275.27    36.00      NA       
+ 141       H-2-IAb      LGTSTFSQYTVVDEN      ADHB_HUMAN    3   STFSQYTVV     0.270         0.192       6267.47    36.00      NA       
+  19       H-2-IAb      KPFSIEDVEVAPPKA      ADHB_HUMAN    2   FSIEDVEVA     0.380         0.191       6355.63    36.00      NA       
+  85       H-2-IAb      PGDKVIPLFTPQCGK      ADHB_HUMAN    4   VIPLFTPQC     0.410         0.190       6372.57    37.00      NA       
+ 142       H-2-IAb      GTSTFSQYTVVDENA      ADHB_HUMAN    4   FSQYTVVDE     0.260         0.186       6678.37    38.00      NA       
+ 269       H-2-IAb      IGRLDTMMASLLCCH      ADHB_HUMAN    3   LDTMMASLL     0.255         0.185       6742.04    38.00      NA       
+  12       H-2-IAb      AVLWEVKKPFSIEDV      ADHB_HUMAN    3   WEVKKPFSI     0.580         0.184       6851.02    39.00      NA       
+ 314       H-2-IAb      WKGAVYGGFKSKEGI      ADHB_HUMAN    5   YGGFKSKEG     0.315         0.181       7029.96    40.00      NA       
+ 355       H-2-IAb      INEGFDLLHSGKSIR      ADHB_HUMAN    4   FDLLHSGKS     0.620         0.179       7185.30    41.00      NA       
+ 127       H-2-IAb      TRRFTCRGKPIHHFL      ADHB_HUMAN    4   TCRGKPIHH     0.440         0.176       7430.47    42.00      NA       
+  89       H-2-IAb      VIPLFTPQCGKCRVC      ADHB_HUMAN    4   FTPQCGKCR     0.355         0.173       7702.49    43.00      NA       
+  70       H-2-IAb      AGIVESVGEGVTTVK      ADHB_HUMAN    5   SVGEGVTTV     0.240         0.173       7664.41    43.00      NA       
+ 332       H-2-IAb      VADFMAKKFSLDALI      ADHB_HUMAN    3   FMAKKFSLD     0.290         0.172       7803.06    43.00      NA       
+  68       H-2-IAb      EAAGIVESVGEGVTT      ADHB_HUMAN    4   IVESVGEGV     0.400         0.171       7875.32    44.00      NA       
+ 229       H-2-IAb      FAKAKELGATECINP      ADHB_HUMAN    4   KELGATECI     0.360         0.166       8300.16    46.00      NA       
+ 344       H-2-IAb      ALITHVLPFEKINEG      ADHB_HUMAN    2   ITHVLPFEK     0.455         0.165       8396.27    46.00      NA       
+ 324       H-2-IAb      SKEGIPKLVADFMAK      ADHB_HUMAN    5   PKLVADFMA     0.250         0.162       8675.91    47.00      NA       
+ 261       H-2-IAb      GVDFSFEVIGRLDTM      ADHB_HUMAN    3   FSFEVIGRL     0.360         0.157       9123.38    50.00      NA       
+  34       H-2-IAb      YEVRIKMVAVGICRT      ADHB_HUMAN    6   MVAVGICRT     0.280         0.156       9256.92    50.00      NA       
+  31       H-2-IAb      PKAYEVRIKMVAVGI      ADHB_HUMAN    2   AYEVRIKMV     0.275         0.155       9386.42    50.00      NA       
+ 215       H-2-IAb      GAARIIAVDINKDKF      ADHB_HUMAN    4   IIAVDINKD     0.420         0.155       9352.56    50.00      NA       
+ 328       H-2-IAb      IPKLVADFMAKKFSL      ADHB_HUMAN    3   LVADFMAKK     0.245         0.154       9457.27    55.00      NA       
+ 191       H-2-IAb      PGSTCAVFGLGGVGL      ADHB_HUMAN    5   AVFGLGGVG     0.175         0.147      10173.70    55.00      NA       
+  33       H-2-IAb      AYEVRIKMVAVGICR      ADHB_HUMAN    5   IKMVAVGIC     0.230         0.142      10814.34    60.00      NA       
+ 125       H-2-IAb      DGTRRFTCRGKPIHH      ADHB_HUMAN    4   RFTCRGKPI     0.325         0.140      11014.86    60.00      NA       
+  75       H-2-IAb      SVGEGVTTVKPGDKV      ADHB_HUMAN    2   GEGVTTVKP     0.190         0.135      11652.98    60.00      NA       
+ 222       H-2-IAb      VDINKDKFAKAKELG      ADHB_HUMAN    5   DKFAKAKEL     0.560         0.134      11744.49    65.00      NA       
+ 301       H-2-IAb      LSINPMLLLTGRTWK      ADHB_HUMAN    2   INPMLLLTG     0.270         0.130      12252.94    65.00      NA       
+  76       H-2-IAb      VGEGVTTVKPGDKVI      ADHB_HUMAN    4   VTTVKPGDK     0.345         0.129      12401.79    65.00      NA       
+ 254       H-2-IAb      LKEMTDGGVDFSFEV      ADHB_HUMAN    3   MTDGGVDFS     0.370         0.129      12447.36    65.00      NA       
+  80       H-2-IAb      VTTVKPGDKVIPLFT      ADHB_HUMAN    6   GDKVIPLFT     0.200         0.126      12767.22    65.00      NA       
+ 167       H-2-IAb      EKVCLIGCGFSTGYG      ADHB_HUMAN    3   CLIGCGFST     0.370         0.124      13000.57    70.00      NA       
+  79       H-2-IAb      GVTTVKPGDKVIPLF      ADHB_HUMAN    4   VKPGDKVIP     0.220         0.122      13358.76    70.00      NA       
+ 257       H-2-IAb      MTDGGVDFSFEVIGR      ADHB_HUMAN    6   DFSFEVIGR     0.190         0.119      13857.99    70.00      NA       
+ 233       H-2-IAb      KELGATECINPQDYK      ADHB_HUMAN    3   GATECINPQ     0.250         0.119      13832.53    70.00      NA       
+  44       H-2-IAb      GICRTDDHVVSGNLV      ADHB_HUMAN    6   DHVVSGNLV     0.475         0.117      14053.38    70.00      NA       
+ 350       H-2-IAb      LPFEKINEGFDLLHS      ADHB_HUMAN    3   EKINEGFDL     0.315         0.115      14358.16    70.00      NA       
+ 272       H-2-IAb      LDTMMASLLCCHEAC      ADHB_HUMAN    3   MMASLLCCH     0.235         0.115      14414.98    70.00      NA       
+ 352       H-2-IAb      FEKINEGFDLLHSGK      ADHB_HUMAN    4   NEGFDLLHS     0.300         0.114      14636.10    75.00      NA       
+ 110       H-2-IAb      YCLKNDLGNPRGTLQ      ADHB_HUMAN    4   NDLGNPRGT     0.475         0.107      15671.95    75.00      NA       
+  98       H-2-IAb      GKCRVCKNPESNYCL      ADHB_HUMAN    2   CRVCKNPES     0.365         0.099      17067.86    80.00      NA       
+ 243       H-2-IAb      PQDYKKPIQEVLKEM      ADHB_HUMAN    3   YKKPIQEVL     0.440         0.098      17404.28    80.00      NA       
+ 219       H-2-IAb      IIAVDINKDKFAKAK      ADHB_HUMAN    5   INKDKFAKA     0.280         0.096      17728.71    85.00      NA       
+  40       H-2-IAb      MVAVGICRTDDHVVS      ADHB_HUMAN    5   ICRTDDHVV     0.240         0.095      17937.67    85.00      NA       
+ 161       H-2-IAb      DAASPLEKVCLIGCG      ADHB_HUMAN    0   DAASPLEKV     0.320         0.095      17896.19    85.00      NA       
+ 100       H-2-IAb      CRVCKNPESNYCLKN      ADHB_HUMAN    3   CKNPESNYC     0.255         0.095      17829.12    85.00      NA       
+ 235       H-2-IAb      LGATECINPQDYKKP      ADHB_HUMAN    3   TECINPQDY     0.370         0.088      19315.13    85.00      NA       
+ 275       H-2-IAb      MMASLLCCHEACGTS      ADHB_HUMAN    2   ASLLCCHEA     0.265         0.086      19751.12    90.00      NA       
+ 102       H-2-IAb      VCKNPESNYCLKNDL      ADHB_HUMAN    4   PESNYCLKN     0.325         0.078      21397.78    90.00      NA       
+ 250       H-2-IAb      IQEVLKEMTDGGVDF      ADHB_HUMAN    5   KEMTDGGVD     0.240         0.075      22204.89    95.00      NA       
+ 117       H-2-IAb      GNPRGTLQDGTRRFT      ADHB_HUMAN    5   TLQDGTRRF     0.220         0.075      22216.66    95.00      NA       
+ 116       H-2-IAb      LGNPRGTLQDGTRRF      ADHB_HUMAN    3   PRGTLQDGT     0.245         0.075      22225.56    95.00      NA       
+ 162       H-2-IAb      AASPLEKVCLIGCGF      ADHB_HUMAN    1   ASPLEKVCL     0.245         0.073      22644.03    95.00      NA       
+ 107       H-2-IAb      ESNYCLKNDLGNPRG      ADHB_HUMAN    5   LKNDLGNPR     0.400         0.072      23007.06    95.00      NA       
+ 163       H-2-IAb      ASPLEKVCLIGCGFS      ADHB_HUMAN    4   EKVCLIGCG     0.295         0.067      24104.06    95.00      NA       
+ 121       H-2-IAb      GTLQDGTRRFTCRGK      ADHB_HUMAN    2   LQDGTRRFT     0.235         0.063      25201.24    95.00      NA       
+ 248       H-2-IAb      KPIQEVLKEMTDGGV      ADHB_HUMAN    6   LKEMTDGGV     0.230         0.062      25624.11    95.00      NA       
+ 239       H-2-IAb      ECINPQDYKKPIQEV      ADHB_HUMAN    5   QDYKKPIQE     0.290         0.062      25454.17    95.00      NA       
+ 122       H-2-IAb      TLQDGTRRFTCRGKP      ADHB_HUMAN    6   RRFTCRGKP     0.180         0.062      25457.20    95.00      NA       
+ 238       H-2-IAb      TECINPQDYKKPIQE      ADHB_HUMAN    3   INPQDYKKP     0.215         0.060      26135.97    95.00      NA       
+ 247       H-2-IAb      KKPIQEVLKEMTDGG      ADHB_HUMAN    3   IQEVLKEMT     0.260         0.055      27542.61    95.00      NA       
+--------------------------------------------------------------------------------------------------------------------------------------------
+Number of strong binders: 4 Number of weak binders: 11
+--------------------------------------------------------------------------------------------------------------------------------------------
