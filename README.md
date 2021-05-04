@@ -27,7 +27,7 @@ python packages:
 ---
 
 Step1: Build splice graph using augmented_splice_graph.py 
-from input RNA-seq bam file
+from the input RNA-seq bam file
 
 Step2: 
 * Convert RNA-seq bam file to FASTA file using
