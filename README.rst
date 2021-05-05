@@ -38,7 +38,7 @@ Using a Python 2.7 VirtualEnv:
 ::
     git clone https://github.com/Benjamin-Vincent-Lab/NeoSplice.git
     cd NeoSplice
-    virtualenv-2 .
+    virtualenv .
     source bin/activate
     pip install -r requirements.txt
 
