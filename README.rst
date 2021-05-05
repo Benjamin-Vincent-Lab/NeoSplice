@@ -34,10 +34,17 @@ Dependencies
 Installation steps
 ------------------
 
-- Create a local clone of the NeoSplice GitHub repository: https://github.com/Benjamin-Vincent-Lab/NeoSplice
+Using native Python2.8:
+::
+    git clone https://github.com/Benjamin-Vincent-Lab/NeoSplice.git
+    cd NeoSplice
+    virtualenv-2 .
+    pip install -r requirements.txt
 
-- 
-
+Using Singularity with Docker image
+::
+    singularity pull docker://benjaminvincentlab/neosplice:0.0.2
+    singularity shell -B </path/with/input_bams_gffs_fa_etc> neosplice_0.0.2.sif
 
 ========
 Workflow
@@ -79,7 +86,8 @@ The following input files will be referenced in the below workflow steps:
 1. augmented_splice_graph.py
 ----------------------------
 This step builds the splice graph for the tumor, with ``augmented_splice_graph.py`` run for each individual chromosome of interest.  The output for each instance (i.e. chromosome) is a ``.json`` file.  There are several arguments included for this step: **p-error**, **cutoff**, **min-coverage**, and **min-variants**.  While we cannot provide optimal argument recommendations for every sample, below are the values used for simulated read data benchmarking and mass spectrometry validated K562.A2 cell line splice variant neoantigens.  Below is an example for chromosome 1:
- .. code-block:: python
+
+.. code-block:: python
 
     mkdir ./tumor1_splice_graph
     python /NeoSplice/augmented_splice_graph.py build \
