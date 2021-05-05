@@ -21,7 +21,7 @@ System requirements
 ------------
 Dependencies
 ------------
-- Python 2.8
+- Python 2.7
 - networkx 1.11
 - pyahocorasick 1.4.0
 - bcbio-gff 0.6.4
@@ -34,11 +34,12 @@ Dependencies
 Installation steps
 ------------------
 
-Using native Python2.8:
+Using a Python 2.7 VirtualEnv:
 ::
     git clone https://github.com/Benjamin-Vincent-Lab/NeoSplice.git
     cd NeoSplice
     virtualenv-2 .
+    source bin/activate
     pip install -r requirements.txt
 
 Using Singularity with Docker image:
