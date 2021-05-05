@@ -41,7 +41,7 @@ Using native Python2.8:
     virtualenv-2 .
     pip install -r requirements.txt
 
-Using Singularity with Docker image
+Using Singularity with Docker image:
 ::
     singularity pull docker://benjaminvincentlab/neosplice:0.0.2
     singularity shell -B </path/with/input_bams_gffs_fa_etc> neosplice_0.0.2.sif
