@@ -1,0 +1,4 @@
+sample	normal	normal_idx	tumor	tumor_idx	HLA
+sample_1	/path/to/normal_1.star.sort.bam	/path/to/normal_1.star.sort.bam.bai	/path/to/tumor_1.star.sort.bam	/path/to/tumor_1.star.sort.bam.bai	HLA-A02:01
+sample_2	/path/to/normal_2.star.sort.bam	/path/to/normal_2.star.sort.bam.bai	/path/to/tumor_2.star.sort.bam	/path/to/tumor_2.star.sort.bam.bai	HLA-A02:01
+sample_3	/path/to/normal_3.star.sort.bam	/path/to/normal_3.star.sort.bam.bai	/path/to/tumor_3.star.sort.bam	/path/to/tumor_3.star.sort.bam.bai	HLA-A02:01
