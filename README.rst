@@ -73,7 +73,7 @@ Functionally, these above steps are accomplished by individual Python2 scripts, 
 
 .. image:: https://github.com/Benjamin-Vincent-Lab/NeoSplice/blob/master/images/Neosplice_workflow.png
 
-This workflow is summarized step-by-step below. Additionally, an example Nextflow script is provided in the ``./nextflow`` directory of the GitHub repo, which provides the entire workflow as an .nf script.
+This workflow is summarized step-by-step below. Additionally, an example Nextflow script is provided in the ``./Nextflow_example`` directory of the GitHub repo, which provides the entire workflow as an .nf script.
 
 0. Input files
 ----------------------------
