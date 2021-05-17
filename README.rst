@@ -107,8 +107,14 @@ This step is a simple script to back-convert the STAR-aligned **tumor.bam** and 
 
 .. code-block:: python
 
-    python /NeoSplice/convert_bam_to_fasta.py tumor.bam tumor_R1.fasta tumor_R2.fasta
-    python /NeoSplice/convert_bam_to_fasta.py normal.bam normal_R1.fasta normal_R2.fasta
+    python /NeoSplice/convert_bam_to_fasta.py \
+        --bam_file tumor.bam \
+        --R1_out tumor_R1.fasta \
+        --R2_out tumor_R2.fasta
+    python /NeoSplice/convert_bam_to_fasta.py \
+        -bam_file normal.bam \
+        --R1_out normal_R1.fasta \
+        --R2_out normal_R2.fasta
 
 3. Run multi-string BWT
 ----------------------------
@@ -131,7 +137,9 @@ This step searches for the maximum read length contained within either the tumor
 
 .. code-block:: python
 
-     python /NeoSplice/get_max_kmer_length.py tumor.bam normal.bam
+     python /NeoSplice/get_max_kmer_length.py \
+         --tumor_bam tumor.bam \
+         --normal_bam normal.bam
 
 5. Kmer_search_bwt.py
 ----------------------------
@@ -141,8 +149,8 @@ This step uses the MSBWTs generated in step 3 and searches for differentially ex
 
     mkdir .tumor_kmers
     python ./NeoSplice/Kmer_search_bwt.py \
-        --tumor_bwt_1 = ./tumor_bwt/ \
-        --normal_bwt_1 ./normal_bwt/ \
+        --tumor_bwt = ./tumor_bwt/ \
+        --normal_bwt ./normal_bwt/ \
         --processors 1 \
         --max_length $read_length \
         --tumor_threshold 20 \
