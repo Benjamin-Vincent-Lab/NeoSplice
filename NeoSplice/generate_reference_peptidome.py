@@ -150,9 +150,9 @@ def output_peptide(path, num, transcript_dic, genome):
 def main():
     logging.basicConfig(level=logging.DEBUG, format='%(asctime)-15s [%(processName)s.%(levelname)s] %(message)s')
     parser = argparse.ArgumentParser(description="Utility for getting reference peptidome")
-    parser.add_argument("gff_file", type=str, nargs='?', help="provide the GFF file path")
-    parser.add_argument("genome", type=str, nargs='?', help="provide the reference FASTA file path")
-    parser.add_argument("out_dir", type=str, nargs='?', help="provide output path here")
+    parser.add_argument("--gff", required=True, type=str, nargs='?', help="provide the GFF file path")
+    parser.add_argument("--fasta", required=True, type=str, nargs='?', help="provide the reference FASTA file path")
+    parser.add_argument("--out_dir", required=True, type=str, nargs='?', help="provide output path here")
     args = parser.parse_args()
 
     genome = Fasta(args.genome)

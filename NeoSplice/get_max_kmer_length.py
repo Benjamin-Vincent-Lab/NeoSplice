@@ -19,8 +19,8 @@ def get_len(bam_file_tumor, bam_file_normal):
 
 def main():
     parser = argparse.ArgumentParser(description="Utility for determining max k-mer search length.")
-    parser.add_argument('bam_file_tumor', type=str, nargs='?', help='provide tumor bam file path here')
-    parser.add_argument('bam_file_normal', type=str, nargs='?', help='provide normal bam file path here')
+    parser.add_argument('--tumor_bam', required=True, type=str, nargs='?', help='provide tumor bam file path here')
+    parser.add_argument('--normal_bam', required=True, type=str, nargs='?', help='provide normal bam file path here')
     args = parser.parse_args()
     print get_len(args.bam_file_tumor, args.bam_file_normal)
 

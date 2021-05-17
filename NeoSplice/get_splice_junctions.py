@@ -38,8 +38,8 @@ def retrieve_splices(read, splices, chromosome):
 def main():
     logging.basicConfig(level=logging.DEBUG, format="%(asctime)-15s [%(processName)s.%(levelname)s] %(message)s")
     parser = argparse.ArgumentParser(description="Utility for finding splice junctions from bam file.")
-    parser.add_argument("input_bam", type=str, nargs='?', help="The input bam file")
-    parser.add_argument("out_file", type=str, nargs='?', help="The output file")
+    parser.add_argument("--input_bam", required=True, type=str, nargs='?', help="The input bam file")
+    parser.add_argument("--out_file", required=True, type=str, nargs='?', help="The output file")
     args = parser.parse_args()
 
     outf = open(args.out_file, 'w')

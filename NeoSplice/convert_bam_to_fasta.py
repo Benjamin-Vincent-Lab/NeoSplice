@@ -4,9 +4,9 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser(description='Utility for converting bam file to fasta files.')
-    parser.add_argument('input_bam_file', type=str, nargs='?', help='provide input bam file path here')
-    parser.add_argument('out_file1', type=str, nargs='?', help='provide output R1 fasta file path here')
-    parser.add_argument('out_file2', type=str, nargs='?', help='provide output R2 fasta file path here')
+    parser.add_argument('--bam_file', required=True, type=str, nargs='?', help='provide input bam file path here')
+    parser.add_argument('--R1_out', required=True, type=str, nargs='?', help='provide output R1 fasta file path here')
+    parser.add_argument('--R2_out', required=True, type=str, nargs='?', help='provide output R2 fasta file path here')
     args = parser.parse_args()
 
     outf1 = open(args.out_file1, "w")

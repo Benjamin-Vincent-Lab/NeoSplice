@@ -9,9 +9,9 @@ def main():
     start = timeit.default_timer()
     logging.basicConfig(level=logging.DEBUG, format="%(asctime)-15s [%(processName)s.%(levelname)s] %(message)s")
     parser = argparse.ArgumentParser(description="Utility for retrieving tumor specific kmers in RNA-seq reads.")
-    parser.add_argument("Kmer_file", type=str, nargs='?', help="provide Kmer file here")
-    parser.add_argument("input_bam_file", type=str, nargs='?', help="provide input bam file path here")
-    parser.add_argument("out_bam_file", type=str, nargs='?', help="provide output bam file path here")
+    parser.add_argument("--Kmer_file", required=True, type=str, nargs='?', help="provide Kmer file here")
+    parser.add_argument("--input_bam_file", required=True, type=str, nargs='?', help="provide input bam file path here")
+    parser.add_argument("--out_bam_file", required=True, type=str, nargs='?', help="provide output bam file path here")
     args = parser.parse_args()
 
     cigar_map = {0:'M', 1:'I', 2:'D', 3:'N', 4:'S', 5:'H', 6:'P', 7:'=', 8:'X', 9:'B'}
