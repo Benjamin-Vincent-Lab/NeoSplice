@@ -94,7 +94,7 @@ The following input files will be referenced in the below workflow steps:
 ----------------------------
 This step builds the splice graph for the tumor, with ``augmented_splice_graph.py`` run for each individual chromosome of interest.  The output for each instance (i.e. chromosome) is a ``.json`` file.  There are several arguments included for this step: **p-error**, **cutoff**, **min-coverage**, and **min-variants**.  While we cannot provide optimal argument recommendations for every sample, below are the values used for simulated read data benchmarking and mass spectrometry validated K562.A2 cell line splice variant neoantigens.  Below is an example for chromosome 1:
 
-.. code-block:: python
+.. code-block::
 
     mkdir ./tumor1_splice_graph
     python /NeoSplice/augmented_splice_graph.py build \
@@ -110,7 +110,7 @@ This step builds the splice graph for the tumor, with ``augmented_splice_graph.p
 ----------------------------
 This step is a simple script to back-convert the STAR-aligned **tumor.bam** and **normal.bam** files back into fasta format:
 
-.. code-block:: python
+.. code-block::
 
     python /NeoSplice/convert_bam_to_fasta.py \
         --bam_file tumor.bam \
@@ -125,7 +125,7 @@ This step is a simple script to back-convert the STAR-aligned **tumor.bam** and 
 ----------------------------
 This step uses the MSBWT-IS tool developed by Holt and colleagues (https://github.com/holtjma/msbwt-is), followed by a bash script to convert the output format for downstream compatibility:
 
-.. code-block:: python
+.. code-block::
      
     mkdir ./tumor_bwt/
     mkdir ./normal_bwt/
@@ -140,7 +140,7 @@ This step uses the MSBWT-IS tool developed by Holt and colleagues (https://githu
 ----------------------------
 This step searches for the maximum read length contained within either the tumor or matched-normal files, returning an output value for use in step 5.  If you know this value already, this step can be skipped:
 
-.. code-block:: python
+.. code-block::
 
      python /NeoSplice/get_max_kmer_length.py \
          --tumor_bam tumor.bam \
@@ -150,7 +150,7 @@ This step searches for the maximum read length contained within either the tumor
 ----------------------------
 This step uses the MSBWTs generated in step 3 and searches for differentially expressed Kmers between tumor and matched-normal samples.  There are two argument variables that can be adjusted here -- **Tmin** (minimum expression of a given Kmer in the tumor) and **Nmax** (maximum expression of a given Kmer in the normal).  For a Kmer to be considered differentially expressed, it must be > **Tmin** AND < **Nmax**.  Typically, you may consider setting **Tmin** to 20-35 and **Nmax** to 1-4.  The **max_length** argument should be set to the value obtained from **step 4**, or the maximum read length of the input files.
 
- .. code-block:: python
+ .. code-block::
 
     mkdir .tumor_kmers
     python ./NeoSplice/Kmer_search_bwt.py \
@@ -167,7 +167,7 @@ This step uses the MSBWTs generated in step 3 and searches for differentially ex
 ----------------------------------------
 This step uses an Aho–Corasick algorithm (pyahocorasick 1.4.0) to search for the reads that contain tumor specific Kmers in the tumor RNA-seq BAM file.  This method runs in time linear in the size of the BAM file.  For each occurrence, the Kmer-containing portion of the read along with corresponding quality scores and Cigar strings is written to a new BAM file.  This output BAM is then sorted and indexed using Samtools.
 
- .. code-block:: python
+ .. code-block::
 
     python ./NeoSplice/search_bam.py \
         --Kmer_file ./tumor_kmers/merged_Tumor_kmers.txt \
@@ -180,7 +180,7 @@ This step uses an Aho–Corasick algorithm (pyahocorasick 1.4.0) to search for t
 ----------------------------------------
 This step collects a list of all splice junctions from the tumor and normal BAM files, storing these in a text file for downstream use.
 
- .. code-block:: python
+ .. code-block::
 
     python /NeoSplice/get_splice_junctions.py \
         --input_bam tumor.bam \
@@ -193,7 +193,7 @@ This step collects a list of all splice junctions from the tumor and normal BAM 
 ----------------------------------------
 In this step, each splice variant transcript sequence is identified by depth-first search.  This is then concatenated with the tumor specific Kmer sequence and translated into 8-11mer peptides for MHC-I neoantigen prediction.  Binding affinity to MHC molecules expressed by the tumor for in-silico generated peptides is predicted using NetMHCpan-4.0.  Arguments to consider in this step include **HLA_I** (provide list of NetMHCpan-compatible alleles for antigen prediction), as well as **transcript_min_coverage** (the minimum Kmer coverage necessary for a transcript to be considered).  This command is run for each chromosome of interest, with an example for chromsome 1 shown below:
 
- .. code-block:: python
+ .. code-block::
 
     python /NeoSplice/kmer_graph_inference.py \
         --sample tumor \
@@ -214,7 +214,7 @@ In this step, each splice variant transcript sequence is identified by depth-fir
 ----------------------------------------
 In this final step, predicted splice variant peptides from above are filtered against the reference peptidome, filtered to peptides with predicted binding affinity >500nM by NetMHCpan-4.0, and summarized into a single output file.  The **data_dir** argument should point to the working directory, one level above the ``outdir`` argument from step 8 (``kmer_graph_inference.py``).  The output from this step provides a summarized text file containing all predicted splice variant neoantigens.
 
- .. code-block:: python
+ .. code-block::
 
     python /NeoSplice/SV_summarization.py \
         --ref_dir ./Reference_peptidome \
