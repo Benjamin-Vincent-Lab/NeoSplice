@@ -207,7 +207,7 @@ In this step, each splice variant transcript sequence is identified by depth-fir
         
 9. SV_summarization.py
 ----------------------------------------
-In this final step, predicted splice variant peptides from above are filtered against the reference peptidome, filtered to peptides with predicted binding affinity >500nM by NetMHCpan-4.0, and summarized into a single output file.  The **data_dir** argument should point to the working directory, one level above the ``outdir`` argument from step 8 (``kmer_graph_inference.py``).  The output from this step provides a summarize text file for each sample containing all predicted splice variant neoantigens.
+In this final step, predicted splice variant peptides from above are filtered against the reference peptidome, filtered to peptides with predicted binding affinity >500nM by NetMHCpan-4.0, and summarized into a single output file.  The **data_dir** argument should point to the working directory, one level above the ``outdir`` argument from step 8 (``kmer_graph_inference.py``).  The output from this step provides a summarized text file containing all predicted splice variant neoantigens.
 
 Note that the reference peptidome provided in the ``./Reference_peptidome`` directory is built from GRCh38.  You can use the script  ``./NeoSplice/generate_reference_peptidome.py`` to generate a different reference build using matching fasta and gff files.
 
