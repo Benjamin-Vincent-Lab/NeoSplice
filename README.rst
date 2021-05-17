@@ -4,6 +4,8 @@ NeoSplice: A bioinformatics method for prediction of splice variant neoantigens
 
 NeoSplice is a novel computational method for splice variant neoantigen prediction based on 1) prediction of tumor-specific k-mers from RNA-seq data, 2) alignment of differentially expressed k-mers to the splice graph, and 3) inference of the variant transcript with MHC binding prediction.  NeoSplice demonstrates high sensitivity and precision (>80% on average across all splice variant classes) through in silico simulated RNA-seq data.  Additionally, predicted splice variant neoantigens in the K562.A2 cell line have been validated using mass spectrometry immunopeptidome analysis.  NeoSplice provides a well-validated platform for prediction of TSA vaccine targets for future cancer antigen vaccine studies to evaluate the clinical efficacy of splice variant neoantigens.
 
+The NeoSplice workflow is currently set up for prediction of MHC-I antigens, with future plans to additionally expand to MHC-II prediction.
+
 NeoSplice is free for academic and non-profit use.
 
 ============
@@ -16,7 +18,6 @@ System requirements
 - multi-string BWT (MSBWT): https://github.com/holtjma/msbwt
 - MSBWT-IS: https://github.com/holtjma/msbwt-is
 - NetMHCpan 4.0
-- NetMHCIIpan 3.2
 
 ------------
 Dependencies
@@ -71,7 +72,7 @@ Summary of workflow
 
 Functionally, these above steps are accomplished by individual Python2 scripts, alongside the prior listed dependencies.  This workflow is summarized in the below figure:
 
-.. image:: https://github.com/Benjamin-Vincent-Lab/NeoSplice/blob/master/images/Neosplice_workflow.png
+.. image:: https://github.com/Benjamin-Vincent-Lab/NeoSplice/blob/master/images/Neosplice_workflow.jpg
 
 This workflow is summarized step-by-step below. Additionally, an example **Nextflow** script is provided in the ``./Nextflow_example`` directory of the GitHub repo, which provides the entire workflow as an .nf script.
 
@@ -177,7 +178,7 @@ This step collects a list of all splice junctions from the tumor and normal BAM 
 
 8. kmer_graph_inference.py
 ----------------------------------------
-In this step, each splice variant transcript sequence is identified by depth-first search.  This is then concatenated with the tumor specific Kmer sequence and translated into 8-11mer peptides for MHC-I neoantigen prediction and 15mer peptides for MHC-II neoantigen prediction.  Binding affinity to MHC molecules expressed by the tumor for in-silico generated peptides is predicted using NetMHCpan-4.0 and NetMHCIIpan-3.2.  Arguments to consider in this step include **HLA_I** and **HLA_II** (provide list of NetMHC(II)pan-compatible alleles for antigen prediction), as well as **transcript_min_coverage** (the minimum Kmer coverage necessary for a transcript to be considered).  This command is run for each chromosome of interest, with an example for chromsome 1 shown below:
+In this step, each splice variant transcript sequence is identified by depth-first search.  This is then concatenated with the tumor specific Kmer sequence and translated into 8-11mer peptides for MHC-I neoantigen prediction.  Binding affinity to MHC molecules expressed by the tumor for in-silico generated peptides is predicted using NetMHCpan-4.0.  Arguments to consider in this step include **HLA_I** (provide list of NetMHCpan-compatible alleles for antigen prediction), as well as **transcript_min_coverage** (the minimum Kmer coverage necessary for a transcript to be considered).  This command is run for each chromosome of interest, with an example for chromsome 1 shown below:
 
  .. code-block:: python
 
@@ -193,7 +194,15 @@ In this step, each splice variant transcript sequence is identified by depth-fir
         --normal_junction_file normal_junctions.txt \
         --transcript_min_coverage 15 \
         --HLA_I ${HLA_i} \
-        --HLA_II ${HLA_ii} \
         --netMHCpan_path ./netMHCpan-4.0-docker/netMHCpan \
-        --netMHCIIpan_path ./netMHCIIpan-3.2-docker/netMHCIIpan \
-        --outdir .
+        --outdir ./tumor_output_dir
+        
+9. SV_summarization.py
+----------------------------------------
+In this final step, predicted splice variant peptides from above are filtered against the reference peptidome, filtered to peptides with predicted binding affinity >500nM by NetMHCpan-4.0, and summarized into a single output file.  The **data_dir** argument should point to the working directory, one level above the ``outdir`` argument from step 8 (``kmer_graph_inference.py``).  The output from this step provides a summarize text file for each sample containing all predicted splice variant neoantigens.
+
+ .. code-block:: python
+
+    python /NeoSplice/SV_summarization.py \
+        --ref_dir ./Reference_peptidome \
+        --data_dir . \
