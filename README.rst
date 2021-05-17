@@ -87,8 +87,9 @@ The following input files will be referenced in the below workflow steps:
 - **./Reference_peptidome**: A GRCh38 reference peptidome of 8-11mer peptides is contained within the repository at ``./Reference_peptidome``. If necessary, you can use the script  ``./NeoSplice/generate_reference_peptidome.py`` to generate a different reference build using matching fasta and gff files. Prior to use (step 9), unzip the files contained in this directory using the following command:
 
 .. code-block:: python
-    gunzip ./Reference_peptidome/*
 
+    gunzip ./Reference_peptidome/*
+    
 1. augmented_splice_graph.py
 ----------------------------
 This step builds the splice graph for the tumor, with ``augmented_splice_graph.py`` run for each individual chromosome of interest.  The output for each instance (i.e. chromosome) is a ``.json`` file.  There are several arguments included for this step: **p-error**, **cutoff**, **min-coverage**, and **min-variants**.  While we cannot provide optimal argument recommendations for every sample, below are the values used for simulated read data benchmarking and mass spectrometry validated K562.A2 cell line splice variant neoantigens.  Below is an example for chromosome 1:
