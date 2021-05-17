@@ -9,9 +9,9 @@ def main():
     parser.add_argument('--R2_out', required=True, type=str, nargs='?', help='provide output R2 fasta file path here')
     args = parser.parse_args()
 
-    outf1 = open(args.out_file1, "w")
-    outf2 = open(args.out_file2, "w")
-    samfile = pysam.AlignmentFile(args.input_bam_file, "rb")
+    outf1 = open(args.R1_out, "w")
+    outf2 = open(args.R2_out, "w")
+    samfile = pysam.AlignmentFile(args.bam_file, "rb")
 
     for read in samfile.fetch():
         if not read.is_unmapped and not read.is_secondary and read.is_proper_pair and read.is_paired and\

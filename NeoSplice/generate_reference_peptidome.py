@@ -155,9 +155,9 @@ def main():
     parser.add_argument("--out_dir", required=True, type=str, nargs='?', help="provide output path here")
     args = parser.parse_args()
 
-    genome = Fasta(args.genome)
-    gff_file = os.path.abspath(args.gff_file)
-    transcript_dic = find_annotated_transcripts(gff_file)
+    genome = Fasta(args.fasta)
+    gff_file = os.path.abspath(args.gff)
+    transcript_dic = find_annotated_transcripts(gff)
     data_store_directory = os.path.join(args.out_dir)
     path = os.path.join(data_store_directory + "peptidome_result/")
     if not os.path.isdir(path) and not os.path.exists(path):

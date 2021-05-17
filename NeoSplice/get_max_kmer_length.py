@@ -3,13 +3,13 @@ import math
 import argparse
 
 
-def get_len(bam_file_tumor, bam_file_normal):
-    bam_file = pysam.AlignmentFile(bam_file_tumor, 'rb')
+def get_len(tumor_bam, normal_bam):
+    bam_file = pysam.AlignmentFile(tumor_bam, 'rb')
     read_lens_tumor = []
     for read in bam_file.fetch("chr22"):
         read_lens_tumor.append(read.query_length)
     bam_file.close()
-    bam_file = pysam.AlignmentFile(bam_file_normal, 'rb')
+    bam_file = pysam.AlignmentFile(normal_bam, 'rb')
     read_lens_normal = []
     for read in bam_file.fetch("chr22"):
         read_lens_normal.append(read.query_length)
@@ -22,7 +22,7 @@ def main():
     parser.add_argument('--tumor_bam', required=True, type=str, nargs='?', help='provide tumor bam file path here')
     parser.add_argument('--normal_bam', required=True, type=str, nargs='?', help='provide normal bam file path here')
     args = parser.parse_args()
-    print get_len(args.bam_file_tumor, args.bam_file_normal)
+    print get_len(args.tumor_bam, args.normal_bam)
 
 
 if __name__ == '__main__':

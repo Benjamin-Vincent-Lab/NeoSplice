@@ -74,26 +74,26 @@ process tumor_specific_kmers {
     set val(sample), file(tumor), file(tumor_idx) , file("${sample}_Kmer_sorted.bam"), file("${sample}_Kmer_sorted.bam.bai"), file("${sample}_tumor_junctions.txt"), file("${sample}_normal_junctions.txt"), file("${sample}_tumor_bwt"), file("${sample}_normal_bwt"), val(HLA) into tumor_specific_kmers_files
 
     """
-    read_length=\$(python /NeoSplice/get_max_kmer_length.py ${tumor} ${normal})
+    read_length=\$(python /NeoSplice/get_max_kmer_length.py --tumor bam ${tumor} --normal_bam ${normal})
 
     mkdir ${sample}_tumor_bwt/
     mkdir ${sample}_normal_bwt/
     mkdir ${sample}_tumor_bwt_temp/
     mkdir ${sample}_normal_bwt_temp/
     mkdir ${sample}_kmers/
-    python /NeoSplice/convert_bam_to_fasta.py ${tumor} ${sample}_tumor_R1.fasta ${sample}_tumor_R2.fasta
-    python /NeoSplice/convert_bam_to_fasta.py ${normal} ${sample}_normal_R1.fasta ${sample}_normal_R2.fasta
+    python /NeoSplice/convert_bam_to_fasta.py --bam_file ${tumor} --R1_out ${sample}_tumor_R1.fasta --R2_out ${sample}_tumor_R2.fasta
+    python /NeoSplice/convert_bam_to_fasta.py --bam_file ${normal} --R1_out ${sample}_normal_R1.fasta --R2_out ${sample}_normal_R2.fasta
     /msbwt-is/msbwtis ${sample}_tumor_bwt_temp/ ${sample}_tumor_R1.fasta ${sample}_tumor_R2.fasta
     /msbwt-is/msbwtis ${sample}_normal_bwt_temp/ ${sample}_normal_R1.fasta ${sample}_normal_R2.fasta
     bash /NeoSplice/convert_BWT_format.bash ${sample}_tumor_bwt_temp ${sample}_tumor_bwt/ 
     bash /NeoSplice/convert_BWT_format.bash ${sample}_normal_bwt_temp ${sample}_normal_bwt/
-    python /NeoSplice/Kmer_search_bwt.py ${sample}_tumor_bwt/ ${sample}_normal_bwt/ 1 \${read_length} 20 4  ${sample}_kmers/
+    python /NeoSplice/Kmer_search_bwt.py --tumor_bwt ${sample}_tumor_bwt/ --normal_bwt ${sample}_normal_bwt/ --processors 1 --max_length \${read_length} --tumor_threshold 20 --normal_threshold 4  --outdir ${sample}_kmers/
     cat ${sample}_kmers/Tumor_kmers_* >  ${sample}_kmers/merged_Tumor_kmers.txt
-    python /NeoSplice/search_bam.py ${sample}_kmers/merged_Tumor_kmers.txt ${tumor} ${sample}_Kmer.bam
+    python /NeoSplice/search_bam.py --Kmer_file ${sample}_kmers/merged_Tumor_kmers.txt --input_bam_file ${tumor} --out_bam_file ${sample}_Kmer.bam
 	samtools sort -m 15G -o ${sample}_Kmer_sorted.bam ${sample}_Kmer.bam
     samtools index ${sample}_Kmer_sorted.bam
-    python /NeoSplice/get_splice_junctions.py ${tumor} ${sample}_tumor_junctions.txt
-    python /NeoSplice/get_splice_junctions.py ${normal} ${sample}_normal_junctions.txt
+    python /NeoSplice/get_splice_junctions.py --input_bam ${tumor} --out_file ${sample}_tumor_junctions.txt
+    python /NeoSplice/get_splice_junctions.py --input_bam ${normal} --out_file ${sample}_normal_junctions.txt
     """
 }
 
@@ -124,7 +124,7 @@ process splice_variants {
     file("${sample}_peptide_${chromosome}_11.xls")
     
     """
-    python /NeoSplice/kmer_graph_inference.py ${sample} ${chromosome} ${tumor} ${gff} ${reference_fa} ${tumor_specific_kmers} ${splice_graph} ${tumor_junctions} ${normal_junctions} 15 ${HLA} None /netMHCpan-4.0-docker/netMHCpan netMHCIIpan-3.2-docker/netMHCIIpan .
+    python /NeoSplice/kmer_graph_inference.py --sample ${sample} --chromosome ${chromosome} --bam_file ${tumor} --gff_file ${gff} --genome_fasta ${reference_fa} --kmer_bam ${tumor_specific_kmers} --splice_graph ${splice_graph} --tumor_junction_file ${tumor_junctions} --normal_junction_file ${normal_junctions} --transcript_min_coverage 15 --HLA_I ${HLA} --netMHCpan_path /netMHCpan-4.0-docker/netMHCpan outdir .
 
     cp neoantigen_result/${sample}/${sample}_outcome_peptide_${chromosome}_8.txt  ${sample}_outcome_peptide_${chromosome}_8.txt
     cp neoantigen_result/${sample}/${sample}_outcome_peptide_${chromosome}_9.txt ${sample}_outcome_peptide_${chromosome}_9.txt

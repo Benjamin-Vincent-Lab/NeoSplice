@@ -14,8 +14,8 @@ import logging
 def find_Kmer(Kmer):
     outf = open(outdir + 'Tumor_kmers_{}.txt'.format(Kmer), 'w')
 
-    msbwt_tumor = MSBWT.loadBWT(args.tumor_bwt_1)
-    msbwt_normal = MSBWT.loadBWT(args.normal_bwt_1)
+    msbwt_tumor = MSBWT.loadBWT(args.tumor_bwt)
+    msbwt_normal = MSBWT.loadBWT(args.normal_bwt)
 
     logging.info("finished loading BWTs")
 
