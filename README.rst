@@ -218,4 +218,4 @@ In this final step, predicted splice variant peptides from above are filtered ag
 
     python /NeoSplice/SV_summarization.py \
         --ref_dir ./Reference_peptidome \
-        --data_dir . \
+        --data_dir .
