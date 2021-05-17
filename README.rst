@@ -86,8 +86,7 @@ The following input files will be referenced in the below workflow steps:
 - **reference.gff**: Reference gff3 file, preferably the same build as the .gtf file that was used to generate the genome index for STAR.
 - **./Reference_peptidome**: A GRCh38 reference peptidome of 8-11mer peptides is contained within the repository at ``./Reference_peptidome``. If necessary, you can use the script  ``./NeoSplice/generate_reference_peptidome.py`` to generate a different reference build using matching fasta and gff files. Prior to use (step 9), unzip the files contained in this directory using the following command:
 
-.. code-block:: python
-
+::
     gunzip ./Reference_peptidome/*
     
 1. augmented_splice_graph.py
