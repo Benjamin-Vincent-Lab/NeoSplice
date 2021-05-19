@@ -154,7 +154,7 @@ This step uses the MSBWTs generated in step 3 and searches for differentially ex
 
     mkdir .tumor_kmers
     python ./NeoSplice/Kmer_search_bwt.py \
-        --tumor_bwt = ./tumor_bwt/ \
+        --tumor_bwt ./tumor_bwt/ \
         --normal_bwt ./normal_bwt/ \
         --processors 1 \
         --max_length $read_length \
