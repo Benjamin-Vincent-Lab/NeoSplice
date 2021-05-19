@@ -103,7 +103,7 @@ This step builds the splice graph for the tumor, with ``augmented_splice_graph.p
         --genome ./path/to/reference.fa \
         --min-variants 10 \
         --cutoff 0.000005 \
-        --gff  ./path/to/reference.gff \
+        --gff ./path/to/reference.gff \
         --out ./tumor_splice_graph
 
 2. convert_bam_to_fasta.py
