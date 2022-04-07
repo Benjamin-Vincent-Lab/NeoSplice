@@ -63,7 +63,7 @@ Multiple steps are needed to identify a novel splice that occurs specifically in
 
 - **Step 3:** Prediction of splice variant neoantigens. Novel splice junctions contained within each splice variant transcript are translated in the inferred open reading frame.  MHC binding affinity prediction is performed on translated peptide sequences to determine which novel regions may yield a neopeptide.
 
-.. image:: https://github.com/Benjamin-Vincent-Lab/NeoSplice/blob/master/images/Neosplice_fig1.PNG
+.. image:: https://github.com/Benjamin-Vincent-Lab/NeoSplice/blob/master/images/Figure_1.png
 
 
 -------------------
